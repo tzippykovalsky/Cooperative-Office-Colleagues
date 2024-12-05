@@ -16,7 +16,7 @@ const Form = ({selectedAddres,setSelectedAddres}) => {
         try {
             let res = await axios.get(`https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(e.target.value)}&limit=5`)
             console.log(res.data);
-            //loading
+            //loading להוסיף עד שנטען
 
             setArr(res.data)
             console.log(res.data[0].display_name);
@@ -56,7 +56,7 @@ const Form = ({selectedAddres,setSelectedAddres}) => {
             <label>מספר חדרים</label>
             <input type="number" {...register("numRooms")} />
             <label>מרחק שמוכן לזוז</label>
-            <input type="number" {...register("distanc")} />
+            <input type="number" {...register("distance")} />
             <input type="submit" />
         </form>
     );
@@ -72,3 +72,6 @@ export default Form;
 //שלב 3
 //בעת לחיצה על אחת מהאפשרויות יש לשמור את אותו פריט כפריט נבחר
 //שלב 4
+//הצגת המפה ע"פ הספריות המיועדות
+//שלב 5
+//בעת טעינת הדף לטעון את המיקום הנוכחי 

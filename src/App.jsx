@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
@@ -6,14 +6,33 @@ import Form from './Form'
 import ShowMap from './ShowMap'
 
 function App() {
-  const [selectedAddres,setSelectedAddres]=useState({lat:"32.053888198971286",lon:"34.95844173528108"})
+  const [selectedAddres, setSelectedAddres] = useState({ lat: "", lon: "" })
 
+  useEffect(() => {
+    if ("geolocation" in navigator) {
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          setSelectedAddres({
+            lat: position.coords.latitude,
+            lon: position.coords.longitude,
+          });
+        },
+        (error) => {
+          console.error("Error fetching location:", error);
+        }
+      );
+    } else {
+      console.error("Geolocation not supported by this browser.");
+
+    }
+  }, []);
   //בעת טעינת הדף אלך ואמלא אותו
-//במקום הנוכחי שלי
+  //במקום הנוכחי שלי
+  //לראות לשנות את זה בצורה אחרת??????
   return (
     <>
-       <Form selectedAddres={selectedAddres} setSelectedAddres={setSelectedAddres}/> 
-      <ShowMap selectedAddres={selectedAddres}/>
+      <Form selectedAddres={selectedAddres} setSelectedAddres={setSelectedAddres} />
+      <ShowMap selectedAddres={selectedAddres} />
     </>
   )
 }

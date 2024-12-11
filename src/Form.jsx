@@ -38,7 +38,7 @@ const Form = ({selectedAddres,setSelectedAddres}) => {
             <label>userName</label>
             <input type="text" {...register("userName")} />
             <label>address</label>
-            <input type="text" {...register("address", { onChange: complete })} />
+            <input type="text" {...register("address", { onBlur: complete })} />
             {arr.length > 0 && (
                 arr.map((item) => 
                 (<li onClick={()=>{chooseAdress(item)}} key={item.place_id}>{item.display_name}</li>)))}

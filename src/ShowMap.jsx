@@ -11,7 +11,7 @@ const ShowMap = ({selectedAddres}) => {
  
     return (<>
 
-        <MapContainer style={{height:536,width:"50vw"}} center={position} zoom={13} scrollWheelZoom={false}>
+        <MapContainer style={{height:536,width:"50vw"}} center={position} zoom={13} scrollWheelZoom={true}>
             <TileLayer
                 attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
                 url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"

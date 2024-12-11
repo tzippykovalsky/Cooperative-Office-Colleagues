@@ -6,7 +6,7 @@ import Form from './Form'
 import ShowMap from './ShowMap'
 
 function App() {
-  const [selectedAddres, setSelectedAddres] = useState({ lat: "", lon: "" })
+  const [selectedAddres, setSelectedAddres] = useState({ lat: "31.9521108", lon: "34.906551" })
 
   useEffect(() => {
     if ("geolocation" in navigator) {
@@ -16,7 +16,10 @@ function App() {
             lat: position.coords.latitude,
             lon: position.coords.longitude,
           });
+          console.log(position);
+          
         },
+      
         (error) => {
           console.error("Error fetching location:", error);
         }

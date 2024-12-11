@@ -1,6 +1,6 @@
 
 import { MapContainer, Marker, TileLayer, useMap,Popup } from 'react-leaflet'
-// import 'leaflet/dist/leaflet.css';
+ import 'leaflet/dist/leaflet.css';
 const UpdateMapCenter = ({ position }) => {
     const map = useMap();
     map.setView(position); // מעדכן את המיקום של המפה
@@ -11,7 +11,7 @@ const ShowMap = ({selectedAddres}) => {
  
     return (<>
 
-        <MapContainer center={position} zoom={13} scrollWheelZoom={false}>
+        <MapContainer style={{height:536,width:"50vw"}} center={position} zoom={13} scrollWheelZoom={false}>
             <TileLayer
                 attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
                 url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
